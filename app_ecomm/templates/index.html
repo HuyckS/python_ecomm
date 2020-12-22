@@ -3,17 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>eComm</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.css
+      "
+    /> -->
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css">
+  </head>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}" />
   </head>
   <body>
-    <h1>hello</h1>
-    <!-- deleted -->
-    <p>Add paragraph two</p>
+    <header>
+      <div class="head-wrapper">
+        <!-- HEAD LEFT -->
+        <div class="head-left">
+          <!-- <i class="fas fa-store"></i> -->
+          {% load static %}
+          <img src="{% static 'images/logo.png' %}" alt="logo">
+          <h1>Store</h1>
+        </div>
+        <!-- HEAD center -->
+        <div class="center">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+              <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- HEAD RIGHT -->
+        <div class="head-right">
+          <a href="#">
+            <h3><i class="fas fa-shopping-cart"></i></h3>
+            <h3>Cart (6)</h3>
+          </a>
+        </div>
+      </div>
+    </header>
 
+    <!-- ======= MAIN PAGE ======= -->
+    <div class="main-wrapper">
+      <div class="container">
 
-    <p>John's paragraph</p>
-    <p>Spencer's paragraph</p>
+        <!-- MAIN LEFT -->
+        <div class="main-left">
+          <p>Categories</p>
+          <ul>
+            <li>Tshirts (35)</li>
+            <li>Shoes (35)</li>
+            <li>Cups (35)</li>
+            <li>Stickers (35)</li>
+          </ul>
+        </div>
+
+        <!-- MAIN RIGHT -- PRODUCTS PAGE -->
+        <div class="main-right">
+          <div class="container">
+            <div class="top-products">
+              <h4>T-Shirts (page 2)</h4>
+
+              <div class="pages-top-right">
+                <p><a href="#">first</a></p>&nbsp;|&nbsp;<p><a href="#">prev</a></p>&nbsp;|&nbsp;<p>2</p>&nbsp;|&nbsp;<p><a href="#">prev</a></p>
+              </div>
+              <div class="sorted-by">
+                <p>Sorted by: </p>
+                <select name="sort_by">
+                  <option value="price_asc">Price ↑ Asc</option>
+                  <option value="price_dec">Price ↓ Dec</option>
+                  <option value="most_popular" selected>Most Popular</option>
+                </select>
+              </div>
+
+            </div>
+            
+            <!-- main products display loop -->
+            <div class="products-container">
+              <div class="products-row">
+                <div class="product-box">
+                  {% load static %}
+                  <img src="{% static 'images/demo_product.jpg' %}" alt="image">
+                </div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+              </div>
+              <div class="products-row">
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+              </div>
+              <div class="products-row">
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+                <div class="product-box">asd</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

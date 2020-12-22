@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="errors">
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    <ul>
+    {% endif %}
+  </div>
+  <div class="content">
+    <div class="login">
+      <h1>Admin Login Page</h1>
+      <form action="login" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <label for="your_email">Email</label>
+          <input type="text" id="your_email" name="your_email" />
+        </div>
+        <div class="row">
+          <label for="pw">Password</label>
+          <input type="password" id="pw" name="pw" />
+        </div>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+  </div>
+  </body>
+</html>

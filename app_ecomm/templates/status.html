@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Status Tracker</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/logged_in.css' %}" />
+  </head>
+  <div class="wrapper">
+    <header>
+      <div class="left">
+        <h1>Dashboard</h1>
+        <h2><a href="______">Orders</a></h2>
+        <h2><a href="______">Products</a></h2>
+      </div>
+      <div class="right">
+        <a href="_______">Log Out</a>
+      </div>
+    </header>
+    <body>
+      <div class="viewbar">
+        <div class="viewbar_left">
+          <p>Search</p>
+        </div>
+        <div class="viewbar_right">
+          <select name="view_type" id="view_type">
+            <option value="order_in_process">Order In-process</option>
+            <option value="shipped">Shipped</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+      <div class="table">
+        <table>
+          <tr>
+            <th>Order Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Billing Address</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>101</td>
+            <td>Luke</td>
+            <td>12/04/2020</td>
+            <td>123 Galaxy Far Far Away Drive</td>
+            <td>$39.99</td>
+            <td>
+              <select name="status" id="status">
+                <option value="in_proc">Order In-process</option>
+                <option value="sent">Shipped</option>
+                <option value="stopped">Cancelled</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </body>
+    <footer>
+      <p>
+        <a href="">1</a> | <a href="">2</a> | <a href="">3</a> |
+        <a href="">4</a> | <a href="">5</a> | <a href="">6</a> |
+        <a href="">7</a> | <a href="">8</a> | <a href="">9</a> |
+        <a href="">10</a> | <a href="">-></a>
+      </p>
+    </footer>
+  </div>
+</html>

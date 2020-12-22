@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit an existing product</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/logged_in.css' %}" />
+  </head>
+  <div class="wrapper">
+    <body>
+      <h1>Edit Product - _____ID_______</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <label for="desc">Description</label>
+        <label for="category">Categories</label>
+        <label for="new_cat">or add new category</label>
+        <label for="image">Images</label>
+      </form>
+    </body>
+  </div>
+</html>

@@ -10,10 +10,18 @@ Product will include:
 -----------------------------------------------------------------
 Order will include:
 
-    Customer          (may change if we add user login -- will discuss with sadie)
-    Billing Address   (capture all info in one variable to create Order instance)
-    Shipping Address  (same as billing)
-    Products          (Create with first product and then add the remaining products from order)
+    customer          (may change if we add user login -- will discuss with sadie)
+    billing_address   (capture all info in one variable to create Order instance)
+    billing_city
+    billing_state
+    billing_zip
+    
+    recipient
+    shipping_address  (same as billing)
+    shipping_city
+    shipping_state
+    shipping_zip
+    products          (Create with first product and then add the remaining products from order)
 
     Note: Price and total can be stored in a dictionary and then used to add / track totals
 ------------------------------------------------------------------
@@ -57,7 +65,7 @@ Webpages:
 
     Dashboard (Orders Status) Page
     - Table
-    
+
     Specific Order Description Page
 
     Products Inventory Page

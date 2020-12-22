@@ -1,0 +1,137 @@
+body * {
+  /* outline: 1px solid red; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.fa-store {
+  font-size: 33pt;
+  margin-left: 10px;
+}
+header {
+  background-color: rgb(31, 32, 34);
+  color: white;
+  margin-bottom: 20px;
+}
+header .head-wrapper {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header h1,
+h3 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+header .btn {
+  background-color: rgb(54, 173, 224);
+}
+header .btn:hover {
+  background-color: rgb(47, 131, 166);
+}
+header .head-left {
+  /* outline: 1px solid red; */
+  /* background-color: rgb(96, 173, 179); */
+  vertical-align: top;
+  display: inline-block;
+}
+header .head-right {
+  margin-right: 30px;
+}
+header a {
+  color: white;
+  /* text-shadow: 3px 3px 10px black; */
+}
+header a:hover {
+  color: yellow;
+  text-decoration: none;
+}
+header input::placeholder {
+  text-align: center;
+}
+header input {
+  text-align: center;
+}
+header {
+  box-shadow: 0 2px 25px gray;
+}
+
+/* ==== main==================== */
+.main-wrapper * {
+  /* outline: 1px solid red; */
+}
+div.main-left,
+div.main-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* LEFT */
+.main-left * {
+  /* outline: 1px solid red; */
+}
+div.main-left {
+  /* outline: 1px solid red; */
+  width: 31%;
+  min-height: 30%;
+  background-color: azure;
+}
+.main-left li {
+  list-style-type: none;
+}
+
+/* ==========================
+   ===     RIGHT SIDE     ===
+   ==========================
+*/
+div.main-right * {
+  outline: 1px solid red;
+}
+
+div.main-right {
+  /* background-color: bisque; */
+  width: 68%;
+  box-shadow: 4px 4px 30px grey;
+}
+div.top-products {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+div.top-products h4,
+div.pages-top-right,
+div.pages-top-right p {
+  display: inline-block;
+  vertical-align: top;
+}
+div.sorted-by p,
+div.sorted-by select {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* --------------------------- 
+    main products container
+    -----------------------*/
+div.products-container {
+  background-color: aquamarine;
+  padding: 15px;
+  /* display: flex;
+  justify-content: space-between; */
+}
+div.products-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+div.product-box {
+  width: 17%;
+  min-height: 100px;
+  background-color: blue;
+}
+div.product-box img {
+  background: cover;
+}

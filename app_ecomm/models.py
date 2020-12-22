@@ -24,6 +24,7 @@ class Product(models.Model):
     category = models.CharField(max_length=255)
     image = models.ImageField(upload_to='products')
     inventory_count = models.IntegerField()
+    price = models.DecimalField(max_digits=9, decimal_places=2)
     user = models.ForeignKey(
         User, related_name="created_products", on_delete=models.CASCADE)
     objects = ProductManager()
@@ -45,8 +46,7 @@ class Order(models.Model):
     shipping_address = models.TextField(max_length=255)
     products = models.ManyToManyField(
         Product, related_name='orders_with_product')
-    quantity = models.IntegerField()
-    total = models.DecimalField(max_digits=9, decimal_places=2)
+    # total = models.DecimalField(max_digits=9, decimal_places=2)
     objects = OrderManager()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

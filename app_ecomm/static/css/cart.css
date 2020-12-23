@@ -1,0 +1,127 @@
+body * {
+  /* outline: 1px solid red; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.fa-store {
+  font-size: 33pt;
+  margin-left: 10px;
+}
+header {
+  background-color: rgb(31, 32, 34);
+  color: white;
+  margin-bottom: 20px;
+}
+header .head-wrapper {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header h1,
+h5 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+header .btn {
+  background-color: rgb(54, 173, 224);
+}
+header .btn:hover {
+  background-color: rgb(47, 131, 166);
+}
+header .head-left {
+  /* outline: 1px solid red; */
+  /* background-color: rgb(96, 173, 179); */
+}
+header img.logo {
+  display: inline-block;
+  vertical-align: top;
+}
+header .head-left h1 {
+  /* background-color: red; */
+  margin-top: 30px;
+  width: 300px;
+  min-height: 20px;
+}
+header .head-right {
+  margin-right: 30px;
+}
+header a {
+  color: white;
+  /* text-shadow: 3px 3px 10px black; */
+}
+header a:hover {
+  color: yellow;
+  text-decoration: none;
+}
+header input::placeholder {
+  text-align: center;
+}
+header input {
+  text-align: center;
+}
+header {
+  box-shadow: 0 2px 25px gray;
+}
+
+/* ========================= */
+/* ========    main       === */
+.wrapper {
+  margin-top: 50px;
+}
+
+i.fa-trash-alt {
+  color: red;
+}
+
+table {
+  box-shadow: 2px 2px 30px gray;
+}
+
+div.left,
+div.right {
+  display: inline-block;
+  vertical-align: top;
+}
+.billing-and-continue-btn * {
+  /* outline: 1px solid red; */
+}
+
+.billing-and-continue-btn {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  margin-left: -10px;
+}
+
+div.left {
+  /* background-color: rgb(198, 228, 228); */
+  width: 41.6%;
+  padding: 10px;
+  box-shadow: 2px 2px 30px gray;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+div.left h4 {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+/* form ========== */
+div.form-inline {
+  margin-bottom: 20px;
+}
+.pay-btn {
+  width: 180px;
+  display: block;
+  /* margin: 0 auto; */
+}
+
+div.right {
+  /* background-color: wheat; */
+  width: 25%;
+  line-height: 3;
+}

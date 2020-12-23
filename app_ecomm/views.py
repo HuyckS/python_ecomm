@@ -119,6 +119,7 @@ def log_out(request):
     return redirect('/admin/login')
 
 
+
 # ------------ADMIN FUNCTIONS----------------------------
 
 
@@ -165,6 +166,14 @@ def createProduct(request):
 
     return redirect('/dashboard/products')
 
+# def product_page(request, product_id):
+#     print('\n-----------> product HTML show id:', product_id)
+#     return render(request, 'product.html')
+
+# def cart_page(request):
+#     print('\n-----------> cart HTML page')
+#     return render(request, 'cart_page.html')
+
 
 def editProduct(request, product_id):
     if "user_id" not in request.session:
@@ -204,3 +213,4 @@ def displayPreview(request, product_id):
         preview_price = request.POST['price']
     }
     return render(request, 'previewProduct.html', context)
+

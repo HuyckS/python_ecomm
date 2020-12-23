@@ -63,7 +63,7 @@ def orderInfoForm(request):
     # #     'cart': len(products)
 
     # # }
-    return render(request, 'product.html')
+    return render(request, 'cart_page.html')
 
 
 def createOrder(request):

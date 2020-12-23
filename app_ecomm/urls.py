@@ -6,7 +6,7 @@ urlpatterns = [
     # CUSTOMER ROUTES
     path('', views.index),
     path('products/show/<int:product_id>', views.displayProduct),
-    path('products/show/<int:product_id>/add/<int:quantity>', views.addToCart),
+    path('products/show/addToCart', views.addToCart),
     path('cart', views.orderInfoForm),
     path('checkout', views.createOrder),
 

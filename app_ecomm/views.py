@@ -23,12 +23,22 @@ def index(request):
 
 
 def displayProduct(request, product_id):
+    if 'products' not in request.session:  # May not need this if no add to cart on main page
+        request.session['products'] = {}
+        request.session['item_count'] = 0
+        num = 0
+    else:
+        num = request.session['item_count']
+        products = request.session['products']
+
     # maybe add if inventory = 0 -- return out of stock page
     product = Product.objects.get(id=product_id)
     products = request.session['products']
     category = product.category
     cart_amount = len(products)
     context = {
+        'count': num,
+        'items': products,
         'this_product': product,
         'similar_items':  category,
         'cart': cart_amount
@@ -37,19 +47,30 @@ def displayProduct(request, product_id):
 
 
 def addToCart(request, product_id, quantity):
-    if 'products' not in request.session:
+    print("In addToCart **********")
+    if 'products' not in request.session:  # May not need this if no add to cart on main page
         request.session['products'] = {}
-    products = request.session['products']
+        products = request.session['products']
+        request.session['item_count'] = 0
+        num = 0
+    else:
+        num = request.session['item_count']
+        products = request.session['products']
     if product_name not in products.keys():
         products['product_id'] = quantity
+        num += quantity
     else:
         products['product_id'] += quantity
+        num += quantity
     messages.add_message(  # Add this to html
         request,
         message.INFO,
         f'{quantity} items added to your cart.'
     )
-
+    context = {
+        'count': num,
+        'items': products
+    }
     return redirect(f'/products/show/{product_id}')
 
 

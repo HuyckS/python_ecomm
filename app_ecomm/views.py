@@ -9,9 +9,11 @@ import bcrypt
 def index(request):
     if 'products' not in request.session:  # May not need this if no add to cart on main page
         request.session['products'] = {}
-    context = {
-        'cart' = len(products)
-    }
+        products = request.session['products']
+        cart_items = 0
+    # context = {
+    #     'cart': cart_items
+    # }
     return render(request, 'index.html')
 
 
@@ -21,9 +23,9 @@ def displayProduct(request, product_id):
     products = request.session['products']
     category = product.category
     context = {
-        'this_product' = product,
-        'similar_items' = category,
-        'cart' = len(products)
+        'this_product': product,
+        'similar_items':  category,
+        'cart': len(products)
     }
     return render(request, '', context)  # which html page template?
 
@@ -46,20 +48,21 @@ def addToCart(request, product_id, quantity):
 
 
 def orderInfoForm(request):
-    cart = session.request['products']
+    # cart = session.request['products']
 
-    total =
-    for item in cart:
-        Product.objects.get(item)
+    # total =
+    # for item in cart:
+    #     Product.objects.get(item)
 
-    context = {
-        'items' = cart.keys(),
-        'price' =,
-        'quantity' = cart.values(),
-        'total' =,
-        'cart' = len(products)
+    # # context = {
+    # #     'items': cart.keys(),
+    # #     'price':,
+    # #     'quantity': cart.values(),
+    # #     'total':,
+    # #     'cart': len(products)
 
-    }
+    # # }
+    pass
 
 
 def createOrder(request):
@@ -117,7 +120,6 @@ def log_in(request):
 def log_out(request):
     request.session.clear()
     return redirect('/admin/login')
-
 
 
 # ------------ADMIN FUNCTIONS----------------------------
@@ -206,11 +208,14 @@ def displayPreview(request, product_id):
         messages.error(request, "Please log in.")
         return redirect('/')
     context = {
-        preview_name = request.POST['name'],
-        preview_desc = request.POST['desc'],
-        preview_category = request.POST['cat'],
-        preview_image = request.POST['img'],
-        preview_price = request.POST['price']
+        'preview_name': request.POST['name'],
+        'preview_desc': request.POST['desc'],
+        'preview_category': request.POST['cat'],
+        'preview_image': request.POST['img'],
+        'preview_price': request.POST['price']
     }
     return render(request, 'previewProduct.html', context)
 
+
+def displayOrder(request):
+    pass

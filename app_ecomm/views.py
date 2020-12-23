@@ -9,12 +9,23 @@ import bcrypt
 def index(request):
     if 'products' not in request.session:  # May not need this if no add to cart on main page
         request.session['products'] = {}
+    context = {
+        'cart' = len(products)
+    }
     return render(request, 'index.html')
 
 
 def displayProduct(request, product_id):
     # maybe add if inventory = 0 -- return out of stock page
-    return render(request, '')  # which html page template?
+    product = Product.objects.get(id=product_id)
+    products = request.session['products']
+    category = product.category
+    context = {
+        'this_product' = product,
+        'similar_items' = category,
+        'cart' = len(products)
+    }
+    return render(request, '', context)  # which html page template?
 
 
 def addToCart(request, product_id, quantity):
@@ -30,7 +41,25 @@ def addToCart(request, product_id, quantity):
         message.INFO,
         f'{quantity} items added to your cart.'
     )
-    return redirect('')
+
+    return redirect(f'/products/show/{product_id}')
+
+
+def orderInfoForm(request):
+    cart = session.request['products']
+
+    total =
+    for item in cart:
+        Product.objects.get(item)
+
+    context = {
+        'items' = cart.keys(),
+        'price' =,
+        'quantity' = cart.values(),
+        'total' =,
+        'cart' = len(products)
+
+    }
 
 
 def createOrder(request):
@@ -153,7 +182,10 @@ def editProduct(request, product_id):
     this_user = User.objects.get(id=user_id)
     this_product = Product.objects.get(id=product_id)
 
-    if key in this_product:
+    post_keys = request.POST.keys()
+
+    if key in post_keys:
+        # make sure names in html match model field names
         this_product.key = request.session['key']
     this_product.save()
 

@@ -54,7 +54,7 @@ class Order(models.Model):
     shipping_zip = models.IntegerField()
     products = models.ManyToManyField(
         Product, related_name='orders_with_product')
-    # total = models.DecimalField(max_digits=9, decimal_places=2)
+    total = models.DecimalField(max_digits=9, decimal_places=2)
     objects = OrderManager()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

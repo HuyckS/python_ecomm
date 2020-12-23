@@ -36,20 +36,22 @@
             <th>ID</th>
             <th>Name</th>
             <th>Inventory Count</th>
-            <th>Quantity Sold</th>
+            <th>Quantity</th>
             <th>Action</th>
           </tr>
+          {% for product in products %}
           <tr>
-            <td><img src="" alt="" /></td>
-            <td>1</td>
-            <td>Baby Yoda T-Shirt</td>
-            <td>75</td>
-            <td>425</td>
+            <td>{{product.img}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.inventory_count}}</td>
+            <td>{{product.quantity}}</td>
             <td>
               <a href="">Order More</a> |
-              <a href="dashboard/products/edit/<int:product_id>">Edit</a> |
+              <a href="dashboard/products/edit/{{product_id}}">Edit</a> |
               <a href="">Delete</a>
             </td>
+            {% endfor %}
           </tr>
         </table>
       </div>

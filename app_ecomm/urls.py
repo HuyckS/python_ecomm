@@ -18,8 +18,10 @@ urlpatterns = [
     # ADMIN ROUTES
     path('dashboard/orders', views.displayOrders),
     path('dashboard/products', views.displayInventory),
+    path('dashboard/products/form', views.productForm),
+    path('dashboard/products/edit/<int:product_id>', views.editForm),
     path('dashboard/products/create', views.createProduct),
-    path('dashboard/products/edit/<int:product_id>', views.editProduct),
+    path('dashboard/products/update', views.editProduct),
     path('dashboard/products/preview', views.displayPreview),
     path('dashboard/orders/show/<int:order_id>', views.displayOrder)
 ]

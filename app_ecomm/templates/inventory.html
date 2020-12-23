@@ -11,11 +11,11 @@
     <header>
       <div class="left">
         <h1>Dashboard</h1>
-        <h2><a href="______">Orders</a></h2>
-        <h2><a href="______">Products</a></h2>
+        <h2><a href="/dashboard/orders">Orders</a></h2>
+        <h2><a href="/dashboard/products">Products</a></h2>
       </div>
       <div class="right">
-        <a href="_______">Log Out</a>
+        <a href="/admin/logout">Log Out</a>
       </div>
     </header>
     <body>
@@ -24,7 +24,9 @@
           <p>Big Search Bar</p>
         </div>
         <div class="toolbar_right">
-          <button><a href="">Add new product</a></button>
+          <button>
+            <a href="/dashboard/products/form">Add new product</a>
+          </button>
         </div>
       </div>
       <div class="table">
@@ -44,7 +46,8 @@
             <td>75</td>
             <td>425</td>
             <td>
-              <a href="">Order More</a> | <a href="">Edit</a> |
+              <a href="">Order More</a> |
+              <a href="dashboard/products/edit/<int:product_id>">Edit</a> |
               <a href="">Delete</a>
             </td>
           </tr>

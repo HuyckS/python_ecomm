@@ -1,6 +1,7 @@
 from django.db import models
 from PIL.Image import core as _imaging
 
+
 class User (models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -22,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField(max_length=255)
     category = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='products')
+    image = models.ImageField(upload_to='products', blank=True)
     inventory_count = models.IntegerField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
     user = models.ForeignKey(

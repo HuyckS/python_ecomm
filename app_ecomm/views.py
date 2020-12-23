@@ -22,12 +22,13 @@ def displayProduct(request, product_id):
     product = Product.objects.get(id=product_id)
     products = request.session['products']
     category = product.category
+    cart_amount = len(products)
     context = {
         'this_product': product,
         'similar_items':  category,
-        'cart': len(products)
+        'cart': cart_amount
     }
-    return render(request, '', context)  # which html page template?
+    return render(request, 'product.html', context)
 
 
 def addToCart(request, product_id, quantity):
@@ -62,7 +63,7 @@ def orderInfoForm(request):
     # #     'cart': len(products)
 
     # # }
-    pass
+    return render(request, 'product.html')
 
 
 def createOrder(request):
@@ -111,10 +112,10 @@ def log_in(request):
         if bcrypt.checkpw(request.POST['pw'].encode(), user.pw_hash.encode()):
             request.session['user_id'] = user.id
             request.session['name'] = user.first_name
-            messages.add_message
+            # messages.add_message(request, message.INFO, 'Login successful!')
             return redirect('/dashboard/orders')
     messages.error(request, "Incorrect login.")
-    return redirect('/admin/login')
+    return redirect('/dashboard/orders')
 
 
 def log_out(request):
@@ -128,21 +129,35 @@ def log_out(request):
 def displayOrders(request):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
-        return redirect('/')
+        return redirect('/admin/login')
     return render(request, 'status.html')
 
 
 def displayInventory(request):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
-        return redirect('/')
+        return redirect('/admin/login')
     return render(request, 'inventory.html')
+
+
+def productForm(request):
+    if "user_id" not in request.session:
+        messages.error(request, "Please log in.")
+        return redirect('/admin/login')
+    return render(request, 'addProduct.html')
+
+
+def editForm(request):
+    if "user_id" not in request.session:
+        messages.error(request, "Please log in.")
+        return redirect('/admin/login')
+    return render(request, 'editProduct.html')
 
 
 def createProduct(request):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
-        return redirect('/')
+        return redirect('/admin/login')
 
     errors = Product.objects.validate_product(request.POST)
 
@@ -180,7 +195,7 @@ def createProduct(request):
 def editProduct(request, product_id):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
-        return redirect('/')
+        return redirect('/admin/login')
 
     errors = Product.objects.validate_product(request.POST)
 
@@ -206,7 +221,7 @@ def editProduct(request, product_id):
 def displayPreview(request, product_id):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
-        return redirect('/')
+        return redirect('/admin/login')
     context = {
         'preview_name': request.POST['name'],
         'preview_desc': request.POST['desc'],

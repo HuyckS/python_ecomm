@@ -43,7 +43,14 @@ class OrderManager(models.Manager):
 class Order(models.Model):
     customer = models.CharField(max_length=255)
     billing_address = models.TextField(max_length=255)
+    billing_city = models.CharField(max_length=255)
+    billing_state = models.CharField(max_length=255)
+    billing_zip = models.IntegerField()
+    recipient = models.CharField(max_length=255)
     shipping_address = models.TextField(max_length=255)
+    shipping_city = models.CharField(max_length=255)
+    shipping_state = models.CharField(max_length=255)
+    shipping_zip = models.IntegerField()
     products = models.ManyToManyField(
         Product, related_name='orders_with_product')
     # total = models.DecimalField(max_digits=9, decimal_places=2)

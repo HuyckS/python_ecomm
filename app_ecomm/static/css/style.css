@@ -19,8 +19,7 @@ header .head-wrapper {
   justify-content: space-between;
   align-items: baseline;
 }
-header h1,
-h5 {
+header h1, h5 {
   display: inline;
   margin: 0;
   padding: 0;
@@ -75,6 +74,7 @@ div.main-right {
   display: inline-block;
   vertical-align: top;
 }
+
 
 /* ==========================
    ===    👈 LEFT SIDE   ===

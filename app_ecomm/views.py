@@ -130,14 +130,22 @@ def displayOrders(request):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
         return redirect('/admin/login')
-    return render(request, 'status.html')
+    all_orders = Order.objects.all()
+    context = {
+        'orders': all_orders,
+    }
+    return render(request, 'status.html', context)
 
 
 def displayInventory(request):
     if "user_id" not in request.session:
         messages.error(request, "Please log in.")
         return redirect('/admin/login')
-    return render(request, 'inventory.html')
+    inventory = Product.objects.all()
+    context = {
+        'products': inventory
+    }
+    return render(request, 'inventory.html', context)
 
 
 def productForm(request):

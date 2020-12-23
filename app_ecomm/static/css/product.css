@@ -19,7 +19,8 @@ header .head-wrapper {
   justify-content: space-between;
   align-items: baseline;
 }
-header h1, h5 {
+header h1,
+h5 {
   display: inline;
   margin: 0;
   padding: 0;
@@ -69,75 +70,51 @@ header {
 .main-wrapper * {
   /* outline: 1px solid red; */
 }
-div.main-left,
-div.main-right {
+.container a {
+  background-color: rgb(54, 173, 224);
+}
+div.main-product-container {
+  /* border: 2px solid red; */
+  padding: 10px;
+  box-shadow: 2px 2px 30px gray;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+div.main-product-container h2 {
+  margin-left: 19px;
+}
+.left-product-side,
+.right-product-side {
   display: inline-block;
   vertical-align: top;
-}
-
-
-/* ==========================
-   ===    👈 LEFT SIDE   ===
-   ==========================
-*/
-.main-left * {
-  /* outline: 1px solid red; */
-}
-div.main-left {
-  /* outline: 1px solid red; */
-  width: 20%;
-  min-height: 30%;
-  /* background-color: azure; */
-  margin-left: -30px;
-  margin-right: 20px;
   padding: 20px;
-  /* box-shadow: 1px 1px 10px gray; */
-  /* border-radius: 10px; */
-  border-right: 1px solid grey;
-}
-.main-left h4 {
-  margin-bottom: 10px;
-}
-.main-left li {
-  list-style-type: none;
-  margin-left: 20px;
-  padding: 5px;
 }
 
-/* ==========================
-   ===     RIGHT SIDE 👉  ===
-   ==========================
-*/
-div.main-right * {
-  /* outline: 1px solid red; */
+/* ==== LEFT SIDE============ */
+.left-product-side {
+  /* background-color: aquamarine; */
+  min-height: 200px;
+  margin-right: 20px;
+  width: 30%;
 }
-
-div.main-right {
-  /* background-color: bisque; */
-  width: 78%;
-  box-shadow: 4px 4px 30px grey;
+.left-product-side .img-holder img {
+  width: 100%;
 }
-div.top-products {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+.left-product-side p {
+  display: inline;
 }
-div.top-products h4,
-div.pages-top-right,
-div.pages-top-right p {
-  display: inline-block;
-  vertical-align: top;
+a.btn.btn-success {
+  margin-top: 20px;
+  width: 100%;
 }
-div.sorted-by p,
-div.sorted-by select {
-  display: inline-block;
-  vertical-align: top;
+/* ========== RIGHT SIDE ======= */
+.right-product-side {
+  min-height: 100px;
+  /* background-color: burlywood; */
+  width: 65%;
 }
-
-/* --------------------------- 
-    main products container
-    -----------------------*/
+/* -------------------------------- */
+/* similar products */
 div.products-container {
   /* background-color: aquamarine; */
   padding: 15px;
@@ -187,37 +164,4 @@ div.product-box .text-product-block {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
-}
-
-/* ------------ low pagination----- */
-div.pagination {
-  display: flex;
-  justify-content: center;
-}
-/* 
-
-
-
-
-
-
-
-
-
-
-
-
- */
-
-.disclaimer {
-  z-index: 100;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-  /* box-shadow: 2px 2px 20px grey; */
 }

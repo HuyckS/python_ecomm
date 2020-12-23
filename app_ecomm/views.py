@@ -9,12 +9,17 @@ import bcrypt
 def index(request):
     if 'products' not in request.session:  # May not need this if no add to cart on main page
         request.session['products'] = {}
+        request.session['item_count'] = 0
+        num = 0
+    else:
+        num = request.session['item_count']
         products = request.session['products']
-        cart_items = 0
-    # context = {
-    #     'cart': cart_items
-    # }
-    return render(request, 'index.html')
+
+    context = {
+        'count': num,
+        'items': products
+    }
+    return render(request, 'index.html', context)
 
 
 def displayProduct(request, product_id):
@@ -48,22 +53,40 @@ def addToCart(request, product_id, quantity):
     return redirect(f'/products/show/{product_id}')
 
 
-def orderInfoForm(request):
-    # cart = session.request['products']
+def orderInfoForm(request):  # create own database of helper functions
+    if 'products' not in request.session:
+        messages.add_message(request, message.INFO,
+                             'Add items to your cart to checkout.')
+        return redirect('/')
 
-    # total =
-    # for item in cart:
-    #     Product.objects.get(item)
+    cart = request.session['products']
 
-    # # context = {
-    # #     'items': cart.keys(),
-    # #     'price':,
-    # #     'quantity': cart.values(),
-    # #     'total':,
-    # #     'cart': len(products)
+    item_ids = cart.keys()
+    cart_total = 0.00
+    namesObj = {}
+    priceObj = {}
+    total_priceObj = {}
 
-    # # }
-    return render(request, 'cart_page.html')
+    for key, value in cart.items():
+        product = Product.objects.get(id=key)
+        if key not in namesObj:
+            namesObj[key] = product.name
+            priceObj[key] = product.price
+            total_priceObj[key] = product.price
+        else:
+            total_priceObj[key] += product.price
+
+    for value in total_priceObj.values():
+        cart_total += value
+
+    context = {
+        'ids_total_prices': total_priceObj,
+        'ids_names': namesObj,
+        'ids_prices': priceObj,
+        'total': cart_total,
+        'cart': item_ids
+    }
+    return render(request, 'cart_page.html', context)
 
 
 def createOrder(request):

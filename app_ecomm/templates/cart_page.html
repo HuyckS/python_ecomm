@@ -76,16 +76,23 @@
             </tr>
           </thead>
           <tbody>
+            {% for item in cart %}
             <tr>
-              <th scope="row">2</th>
-              <td>CodingDojo sticker</td>
-              <td>$19.99</td>
+              <th scope="row">item</th>
+              {% for item in ids_names.keys %}
+              <td>{{ids_names.item}}</td>
+              {% endfor %} {% for item in ids_prices.keys %}
+              <td>{{ids_prices.item}}</td>
+              {% endfor %}
               <td>
                 2 | <a href="/">update</a> |
                 <a href="/"> <i class="fas fa-trash-alt"></i> </a>
               </td>
-              <td>$29.99</td>
+              {% for item in ids_total_prices.keys%}
+              <td>{{ids_total_prices.item}}</td>
+              {% endfor %}
             </tr>
+            {% endfor %}
             <tr>
               <th scope="row">2</th>
               <td>CodingDojo sticker</td>

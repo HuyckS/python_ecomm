@@ -23,6 +23,7 @@ def log_out(request):
 
 
 def createOrder(request):
+    pass
 
 
 def createProduct(request):
@@ -58,3 +59,11 @@ def createProduct(request):
     newProduct.save()
 
     return redirect('/dashboard/products')
+
+def product_page(request, product_id):
+    print('\n-----------> product HTML show id:', product_id)
+    return render(request, 'product.html')
+
+def cart_page(request):
+    print('\n-----------> cart HTML page')
+    return render(request, 'cart_page.html')
